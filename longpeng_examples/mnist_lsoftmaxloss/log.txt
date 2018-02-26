@@ -1,0 +1,43 @@
+I0226 19:08:21.469326 24404 caffe.cpp:204] Using GPUs 0
+I0226 19:08:21.475092 24404 caffe.cpp:209] GPU 0: GeForce GTX 980M
+I0226 19:08:21.719032 24404 solver.cpp:45] Initializing solver from parameters: 
+test_iter: 100
+test_interval: 1000
+base_lr: 0.1
+display: 200
+max_iter: 30000
+lr_policy: "multistep"
+gamma: 0.1
+momentum: 0.9
+weight_decay: 0.0005
+snapshot: 1000
+snapshot_prefix: "snapshot/mnist_lsoftmaxloss"
+solver_mode: GPU
+device_id: 0
+net: "mnist_train_test.prototxt"
+train_state {
+  level: 0
+  stage: ""
+}
+stepvalue: 5000
+stepvalue: 7500
+stepvalue: 10000
+stepvalue: 30000
+I0226 19:08:21.719172 24404 solver.cpp:102] Creating training net from net file: mnist_train_test.prototxt
+[libprotobuf ERROR google/protobuf/text_format.cc:298] Error parsing text-format caffe.NetParameter: 76:12: Message type "caffe.LayerParameter" has no field named "bn_param".
+F0226 19:08:21.719307 24404 upgrade_proto.cpp:90] Check failed: ReadProtoFromTextFile(param_file, param) Failed to parse NetParameter file: mnist_train_test.prototxt
+*** Check failure stack trace: ***
+    @     0x7f3510dd35cd  google::LogMessage::Fail()
+    @     0x7f3510dd5433  google::LogMessage::SendToLog()
+    @     0x7f3510dd315b  google::LogMessage::Flush()
+    @     0x7f3510dd5e1e  google::LogMessageFatal::~LogMessageFatal()
+    @     0x7f3511431001  caffe::ReadNetParamsFromTextFileOrDie()
+    @     0x7f35113f757f  caffe::Solver<>::InitTrainNet()
+    @     0x7f35113f88c5  caffe::Solver<>::Init()
+    @     0x7f35113f8bdf  caffe::Solver<>::Solver()
+    @     0x7f35115d11b1  caffe::Creator_SGDSolver<>()
+    @           0x40a958  train()
+    @           0x407648  main
+    @     0x7f350f432830  __libc_start_main
+    @           0x407f19  _start
+    @              (nil)  (unknown)
