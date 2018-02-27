@@ -422,6 +422,7 @@ message LayerParameter {
 
   optional KnowledgeDistillationParameter knowledge_distillation_param = 1401;
   optional LargeMarginInnerProductParameter largemargin_inner_product_param = 1402;
+  optional ReLUParameter relu6_param = 1403;
 }
 
 // Message that stores parameters used to apply transformation
@@ -1044,6 +1045,10 @@ message ReLUParameter {
     CUDNN = 2;
   }
   optional Engine engine = 2 [default = DEFAULT];
+}
+
+message ReLU6Parameter {
+  optional float negative_slope = 1 [default = 0];
 }
 
 message ReshapeParameter {
